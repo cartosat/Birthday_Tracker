@@ -1,0 +1,191 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<head>
+    <meta charset="utf-8">
+    <title>Add Friend Birthday</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="{% static 'css/add_friend.css' %}" rel="stylesheet">
+    <link href="{% static 'css/mc-calendar-min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/slogan.css' %}" rel="stylesheet">
+    <link href="{% static 'css/upload_style.css' %}" rel="stylesheet">
+</head>
+<div class="heading_frnd_details">
+    <h2>Add Your 👬/👭/👫 BirthDay</h2>
+</div>
+
+<form class="form" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div id="parent__container">
+        <!-- Profile image upload box -->
+        <div class="container__img" id="left">
+            <div class="wrapper__img">
+                <div class="image__profile">
+                    <img src="" alt="">
+                </div>
+                <div class="content__img">
+                    <div class="icon__img">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                    </div>
+                    <div class="text__img">
+                        Please upload your face 😎
+                    </div>
+                </div>
+                <div id="cancel-btn__img">
+                    <i class="fas fa-times"></i>
+                </div>
+                <div class="file-name__img">
+                    profile picture
+                </div>
+            </div>
+
+            <!--default html file upload button-->
+            <input id="default-btn-img" type="file" name="profile_image" hidden/>
+            <!--our custom file upload button-->
+            <label for="default-btn-img">Choose File</label>
+           
+        </div>
+
+        <!-- Registeration Form -->
+        <div class="col-md-7 col-lg-6 ml-auto" id="right">
+                <div class="row">
+                    <!-- First Name -->
+                    <div class="input-group col-lg-6 mb-4">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                <i class="fa fa-user fa-lg" aria-hidden="true"></i>
+                            </span>
+                        </div>
+                        <input id="first_name" type="text" name="first_name" placeholder="First Name" class="form-control bg-white border-left-0 border-md">
+                    </div>
+                    <!-- Last Name -->
+                    <div class="input-group col-lg-6 mb-4">
+                        <span class="input-group-text bg-white px-0 border-md border-right-0"></span>
+                        <input id="last_name" type="text" name="last_name" placeholder="Last Name" class="form-control bg-white border-left-0 border-md">
+                    </div>
+                    <!-- Birthdate -->
+                    <div class="input-group col-lg-12 mb-4">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-white px-4 border-md border-right-0">
+                            <i class="fa fa-birthday-cake fa-lg" aria-hidden="true"></i>
+                            </span>
+                        </div>
+                        <input id="birth_date" type="text" name="birth_date" placeholder="Pick birth date (MM/DD/YYY)" class="form-control bg-white border-left-0 border-md">
+                    </div>
+                    <!-- Phone Number -->
+                    <div class="input-group col-lg-12 mb-4">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                <i class="fa fa-phone-square fa-lg" aria-hidden="true"></i>
+                            </span>
+                        </div>
+                        <select id="id_phone_number_0" name="id_phone_number_0" style="max-width: 80px" class="custom-select form-control bg-white border-left-0 border-md h-100 font-weight-bold text-muted">
+                            <option value="+91">+91</option>
+                            <option value="+92">+92</option>
+                        </select>
+                        <input id="phone_number" type="text" name="phone_number" placeholder="Phone Number" class="form-control bg-white border-md border-left-0 pl-3">
+                    </div>
+                    <!-- City -->
+                    <div class="input-group col-lg-12 mb-4">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-white px-4 border-md border-right-0">
+                            <i class="fa fa-home fa-lg" aria-hidden="true"></i>
+                            </span>
+                        </div>
+                        <input id="city" type="text" name="city" placeholder="City" class="form-control bg-white border-left-0 border-md">
+                    </div>
+                    <!-- Email Address -->
+                    <div class="input-group col-lg-12 mb-4">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-white px-4 border-md border-right-0">
+                            <i class="fa fa-envelope fa-lg"></i>
+                            </span>
+                        </div>
+                        <input id="email" type="email" name="email" placeholder="Email Address (optional)" class="form-control bg-white border-left-0 border-md">
+                    </div>
+                    <!-- Instagram handle -->
+                    <div class="input-group col-lg-12 mb-4">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                <i class="fa fa-instagram fa-lg" aria-hidden="true"></i>
+                            </span>
+                        </div>
+                        <input id="social_instagram" type="text" name="social_instagram" placeholder="Instagram (optional)" class="form-control bg-white border-left-0 border-md">
+                    </div>
+                    <!-- Facebook handle -->
+                    <div class="input-group col-lg-12 mb-4">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                <i class="fa fa-facebook-official fa-lg" aria-hidden="true"></i>
+
+                            </span>
+                        </div>
+                        <input id="social_facebook" type="text" name="social_facebook" placeholder="Facebook (optional)" class="form-control bg-white border-left-0 border-md">
+                    </div>
+                    <!-- Twitter handle -->
+                    <div class="input-group col-lg-12 mb-4">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                <i class="fa fa-twitter-square fa-lg" aria-hidden="true"></i>
+                            </span>
+                        </div>
+                        <input id="social_twitter" type="text" name="social_twitter" placeholder="Twitter (optional)" class="form-control bg-white border-left-0 border-md">
+                    </div>
+                    <!-- Submit Button -->
+                    <div class="form-group col-lg-12 mx-auto mb-0">
+                        <input type="submit" class="btn btn-primary btn-block py-2" value="Add Your Friend's BirthDay" />
+                    </div>
+                </div>
+        </div>
+    </div>
+</form>
+ 
+<script src="{% static 'js/mc-calendar.min.js' %}"></script>
+<script type="text/javascript">
+
+    const myDatePicker = MCDatepicker.create({ 
+      el: '#birth_date' ,
+      dateFormat: 'MM/DD/YYYY',
+    })
+    myDatePicker();
+</script>
+
+<script type="text/javascript">
+
+    const wrapper = document.querySelector(".wrapper__img");
+    const fileName = document.querySelector(".file-name__img");
+    const defaultBtnImg = document.querySelector("#default-btn-img");
+    // const customBtn = document.querySelector("#custom-btn__img");
+    const cancelBtn = document.querySelector("#cancel-btn__img i");
+    const img = document.querySelector("img");
+    let regExp = /[0-9a-zA-Z\^\&\'\@\{\}\[\]\,\$\=\!\-\#\(\)\.\%\+\~\_ ]+$/;
+
+    function defaultBtnImgActive(){
+        defaultBtnImg.click();
+    }
+
+
+    defaultBtnImg.addEventListener("change", function(){
+
+        const file = this.files[0];
+        if(file){
+            const reader = new FileReader();
+            reader.onload = function(){
+                const result = reader.result;
+                img.src = result;
+                wrapper.classList.add("active__img");
+                
+            }
+            cancelBtn.addEventListener("click", function(){
+                img.src = "";
+                wrapper.classList.remove("active__img");
+            })
+            reader.readAsDataURL(file);
+        }
+        if(this.value){
+            let valueStore = this.value.match(regExp);
+            fileName.textContent = valueStore;
+        }
+    });
+</script>
+{% endblock %}

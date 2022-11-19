@@ -1,0 +1,43 @@
+{% load static %}
+<html lang="en">
+  <head>
+    
+    <link rel="shortcut icon" href="{% static 'images/favicon-removebg-preview.png' %}" type="image/x-icon" />
+    <link href="{% static 'css/cdn/all.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/cdn/font-awesome.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/cdn/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/header.css' %}" rel="stylesheet">
+
+    {% block header %}{% endblock %}
+
+
+  </head>
+  <body>
+    <header>
+      <div class="custom__logo" href="/">Hello {{ username }} 😎</div>
+      <nav>
+        <ul class="custom_nav">
+            <li><a href="/home">Home</a></li>
+            <li><a href="/profile">Profile</a></li>
+            <li><a href="/add_friend">Add</a></li>
+            <li><a href="#">About</a></li>
+        </ul>
+      </nav>
+      <a class="log-out" href="{% url 'UserAuth:logout' %}">
+        <button type="button" class="btn btn-danger">
+          Log Out
+        </button>
+      </a>
+    </header>
+
+    <div class="container">
+      <div id="content" style="margin-top:2em"></div>
+      {% block content %}{% endblock %}
+    </div>
+  </body>
+  <footer>
+    <div class="footer">
+      <span class="footer-text">Made with ❤️ by Vaibhav</span>
+    </div>
+  </footer>
+</html>

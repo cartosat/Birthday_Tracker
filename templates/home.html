@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{%load static%}
+{% block content %}
+<head>
+    <meta charset="utf-8">
+    <title>Home - {{ username }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="{% static 'css/profiles-card.css' %}" rel="stylesheet">
+    <link href="{% static 'css/slogan.css' %}" rel="stylesheet">
+    <link href="{% static 'css/search-bar.css' %}" rel="stylesheet">
+    
+</head>
+<body>
+    <div class="app__slogan">
+        <h3>NEVER FORGET THAT SPECIAL OCCASIONS</span></h3>
+        <h2>SEND BIRTHDAY WISHES TO YOUR LOVED ONES❤️🥰</h2>
+      </div>
+    <form class="form" action="{% url 'BirthDayManager:home' %}" method="get">
+        <div class="search-box">
+            <input type="text" placeholder="Search by Name, Location..." id="formInput#search" name="search_query" 
+                value="{{search_query}}" class="search-text" />
+            <div class="search-icon">
+                <i class="fas fa-search"></i>
+            </div>
+        </div>
+    </form>
+
+    <a class="add-details" href="{% url 'BirthDayManager:add_friend' %}">
+        <button type="button" class="btn btn-success">
+            + Add Details
+        </button>
+    </a>
+
+<section class="devlist">
+    <div class="container">
+        <div class="row justify-content-md-left"> 
+
+            {% for profile in data %}
+
+            <div class="col-lg-3">
+                <div class="text-center card-box">
+                    <div class="member-card pt-1 pb-1">
+
+                        <a href="{% url 'BirthDayManager:friend_profile' profile.id %}" class="card__body">
+                            <div class="dev__profile">
+                                <img id="profile_image" name = "profile_image" class="rounded-circle img-thumbnail"  src="/media/{{profile.profile_image}}" alt="profile-image">
+                            </div>
+                            <div class="">
+                                <h4>{{ profile.first_name }} {{ profile.last_name }}</h4>
+                                <p class="text-muted">{{ profile.birth_date|date:"d M Y" }} <span> | </span> {{ profile.city }} </p>
+                            </div>
+                        </a>
+                        <ul class="social-links list-inline">
+                            <li class="list-inline-item"><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="WhatsApp"><i class="fa fa-whatsapp"></i></a></li>
+                            <li class="list-inline-item"><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Instagram"><i class="fa fa-instagram"></i></a></li>
+                            <li class="list-inline-item"><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                            <li class="list-inline-item"><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                        </ul>
+                        <button type="button" class="btn btn-primary mt-3 btn-rounded waves-effect w-md waves-light">Remaining : {{ profile.remaining_days }}</button>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+</body>
+{% endblock %}
