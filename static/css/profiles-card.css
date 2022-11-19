@@ -1,0 +1,68 @@
+body{
+    background:#664AFF;
+}
+.card-box {
+    padding: 20px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    background-color: rgba(255, 255, 255, 1);
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06);
+}
+
+.social-links li a {
+    border-radius: 50%;
+    color: rgba(121, 121, 121, .8);
+    display: inline-block;
+    height: 35px;
+    padding-top: 7;
+    line-height: 27px;
+    border: 2px solid rgba(121, 121, 121, .5);
+    text-align: center;
+    width: 35px
+}
+
+.social-links li a:hover {
+    color: #030303;
+    border: 2px solid #797979
+}
+.thumb-lg {
+    height: 80px;
+    width: 80px;
+}
+.img-thumbnail {
+    padding: .25rem;
+    background-color: #fff;
+    border: 3px solid #070707;
+    border-radius: .25rem;
+    border-inline-end-color: #070707;
+    max-width: 70%;
+    object-fit: cover;
+    
+}
+
+.btn-rounded {
+    border-radius: 2em;
+}
+.text-muted {
+    color: #98a6ad!important;
+    height: 45px;
+    
+}
+h4 {
+    margin-top: 8%;
+    line-height: 22px;
+    font-size: 18px;
+}
+
+/*=======================
+  Developers
+========================*/
+
+.devlist {
+  margin-top: 8rem;
+  margin-bottom: 8rem;
+}
+
+.devlist .grid {
+  align-items: stretch;
+}
