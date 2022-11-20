@@ -97,7 +97,7 @@ def add_friend(request):
             # We can only map primary key defined in table 1 to foreign key in table 2.
             # refer models file for more.
             obj.member_friend = request.user
-            #obj.save()
+            obj.save()
             messages.success(request, "User Added Succesfully !")
             return redirect("BirthDayManager:home")
 
