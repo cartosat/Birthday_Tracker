@@ -144,3 +144,80 @@ MEDIA_URL = '/media/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGGING = {
+    'version': 1,
+    # The version number of our log
+    'disable_existing_loggers': False,
+    # Formatter
+    'formatters': {
+        'verbose' : {
+            'format' : '{asctime} : {levelname} : {name} : {threadName} {thread:d} {module} {filename} {lineno:d} {name} {funcName} {process:d} {message}',
+            'style' : '{',
+        },
+        'simple': {
+            'format' : '{asctime} : {levelname} : {name} : {filename} : {lineno:d} : {funcName} : {message}',
+            'style': '{',
+        },
+        'console-data': {
+            'format' : '{asctime} : {levelname} : {filename}#{lineno:d} - {message}',
+            'style': '{',
+        },
+    },
+
+    # Handlers
+    'handlers': {
+        'console_handler' : {
+            'class': 'logging.StreamHandler',
+            'formatter' : 'console-data',
+            'level': 'DEBUG'
+        },
+        'error_handler': {
+            'class' : 'logging.handlers.RotatingFileHandler',
+            'filename' : os.path.join(BASE_DIR, 'logs', 'debug.log'),
+            'mode' : 'a',
+            'formatter' : 'simple',
+            'level' : 'WARNING',
+            'backupCount' : 5,
+            'maxBytes' : 1024 * 1024 * 5,  # 5 MB
+        },
+        'fileDebug': {
+            'level': 'DEBUG',
+            'formatter' : 'simple',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'logs', 'debug.log'),
+        },
+        'fileInfo': {
+            'level': 'INFO',
+            'formatter' : 'simple',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'logs', 'info.log'),
+        },
+        'fileWarning': {
+            'level': 'WARNING',
+            'formatter' : 'simple',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'logs', 'warning.log'),
+        },
+        'fileError': {
+            'level': 'ERROR',
+            'formatter' : 'simple',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'logs', 'error.log'),
+        },
+        'fileCritical': {
+            'level': 'CRITICAL',
+            'formatter' : 'simple',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'logs', 'critical.log'),
+        },
+    },
+    'loggers': {
+       # notice the blank '', Usually you would put built in loggers like django or root here based on your needs
+        'django.server': {
+            'handlers': ['console_handler', 'error_handler', 'fileDebug', 'fileInfo', 'fileWarning', 'fileError', 'fileCritical'],
+            'level': 'INFO',
+            'propagate': True,
+        },
+    },
+}
