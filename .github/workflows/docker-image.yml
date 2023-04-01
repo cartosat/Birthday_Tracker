@@ -17,5 +17,5 @@ jobs:
     - name: Build the Docker image
       run: |
               docker build . --file Dockerfile --tag ghcr.io/cartosat/vsw-birthday-tracker:$(date +%s)
-              docker run ghcr.io/cartosat/vsw-birthday-tracker:latest
+              docker run -p 8000:80 ghcr.io/cartosat/vsw-birthday-tracker:latest
               docker push ghcr.io/cartosat/vsw-birthday-tracker:latest
