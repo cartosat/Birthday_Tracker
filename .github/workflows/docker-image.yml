@@ -8,19 +8,27 @@ on:
 
 jobs:
 
-  build:
-
+  build-and-push-image:
+  
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
 
     steps:
-    - uses: actions/checkout@v3
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
     - name: Log in to GitHub Packages
-      uses: docker/login-action@v1
+      uses: docker/login-action@v2
       with:
         registry: ghcr.io
         username: ${{ github.actor }}
         password: ${{ secrets.DOCKER_TOKEN }}
-    - name: Build the Docker image
-      run: |
-              docker build . --file Dockerfile --tag ghcr.io/cartosat/vsw-birthday-tracker:latest
-              docker push ghcr.io/cartosat/vsw-birthday-tracker:latest
+    
+    - name: Build and push Docker image
+      uses: docker/build-push-action@v2
+      with: 
+        context: .
+        push: true
+        tag: ghcr.io/cartosat/vsw-birthday-tracker:latest
