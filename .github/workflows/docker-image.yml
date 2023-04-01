@@ -15,4 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag vsw-birthday-tracker:$(date +%s)
+      run: |
+              docker build . --file Dockerfile --tag vsw-birthday-tracker:$(date +%s)
+              docker run ghcr.io/cartosat/vsw-birthday-tracker:$(date +%s):latest
+              docker push ghcr.io/cartosat/vsw-birthday-tracker:$(date +%s):latest
