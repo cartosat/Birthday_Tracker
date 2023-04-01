@@ -31,4 +31,4 @@ jobs:
       with: 
         context: .
         push: true
-        tag: ghcr.io/cartosat/vsw-birthday-tracker:latest
+        tags: ghcr.io/cartosat/vsw-birthday-tracker:latest
