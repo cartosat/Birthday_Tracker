@@ -4,11 +4,17 @@ Birthday Tracker is a full-fledged web application developed using Python's popu
 
 # Technology Stack
 - Python
+- Docker
 - Django
 - SQLite
 - HTML
 - CSS 
 - Javascript
+
+# How to run docker image and access Web app
+- Pull docker image using `docker pull ghcr.io/cartosat/vsw-birthday-tracker:latest`
+- Run docker image as container using `docker run -p 8000:8000 -it ghcr.io/cartosat/vsw-birthday-tracker:latest`
+- Visit [http://127.0.0.1:8000/](http://127.0.0.1:8000/) in your browser in your browser.
 
 # Application Preview Video :-
 https://user-images.githubusercontent.com/34335127/202908310-4810d2ee-6277-4845-8571-529fac356b33.mp4
@@ -67,9 +73,3 @@ https://user-images.githubusercontent.com/34335127/202908310-4810d2ee-6277-4845-
 
 - Now you you can register yourself and login with registered user credentials.
 - You can see some default friends on dashboard, those can be disabled from profile section.
-
-# How to run docker image and access Web app
-- Pull docker image using `docker pull ghcr.io/cartosat/vsw-birthday-tracker:latest`
-- Run docker image as container using `docker run -p 8000:8000 -it ghcr.io/cartosat/vsw-birthday-tracker:latest`
-- Visit [http://127.0.0.1:8000/](http://127.0.0.1:8000/) in your browser in your browser.
-
