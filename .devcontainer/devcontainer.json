@@ -10,7 +10,7 @@
 	},
 	"workspaceFolder": "/workspace",
 	"remoteEnv": {
-		"LOCAL_WORKSPACE_FOLDER": "$workspaceFolder"
+		"LOCAL_WORKSPACE_FOLDER": "${localWorkspaceFolder}"
 	},
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
@@ -37,7 +37,7 @@
 	// Uncomment to connect as an existing user other than the container default. More info: https://aka.ms/dev-containers-non-root.
 	"remoteUser": "vips",
 	"features": {
-		"ghcr.io/devcontainers/features/git": {
+		"ghcr.io/devcontainers/features/git:1": {
 			"version": "latest"
 		}
 	}

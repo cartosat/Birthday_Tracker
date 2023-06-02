@@ -19,6 +19,9 @@ RUN apt-get update \
     # Clean up
     && apt-get autoremove -y && apt-get clean -y && rm -rf /var/lib/apt/lists/* /tmp/library-scripts/
 
+COPY requirements.txt requirements.txt
+RUN pip install -r requirements.txt
+
 COPY . /workspace
 
 ENTRYPOINT [ "/usr/local/share/docker-init.sh" ]
