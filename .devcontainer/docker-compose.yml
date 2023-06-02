@@ -1,0 +1,16 @@
+version: '1'
+
+services:
+  app:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.host.sock
+      - ~/.ssh:/home/vips/.ssh:cached
+      - ../:/workspace:cached
+
+    entrypoint: /usr/local/share/docker-init.sh
+    command: sleep infinity
+    user: vips

@@ -2,10 +2,13 @@ FROM python:3.10.10-bullseye
 
 ARG ENABLE_NONROOT_DOCKER="true"
 ARG INSTALL_ZSH="false"
-ARG UPGRADE_PACKAGES="true"
+ARG UPGRADE_PACKAGES="false"
 ARG USERNAME="vips"
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
+ARG USE_MOBY="true"
+ARG INSTALL_ZSH="false"
+ENV DOCKER_BUILDKIT=1
 
 COPY .devcontainer/library-scripts/*.sh /tmp/library-scripts/
 
