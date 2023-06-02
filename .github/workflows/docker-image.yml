@@ -2,7 +2,7 @@ name: Birtday Tracker CI
 
 on:
   push:
-    branches: [ "release" ]
+    branches: [ "master" ]
 
 jobs:
 
