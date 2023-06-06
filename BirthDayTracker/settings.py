@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'UserAuth.apps.UserauthConfig',
     'BirthDayManager.apps.BirthdaymanagerConfig',
     'phonenumber_field',
+    'rest_framework',
+    'Api'
 ]
 
 MIDDLEWARE = [

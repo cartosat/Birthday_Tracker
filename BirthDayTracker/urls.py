@@ -22,6 +22,7 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/', include('UserAuth.urls')),
+    path('api', include("Api.urls"))
     path('', include('BirthDayManager.urls')),
 ]
 if settings.DEBUG:
