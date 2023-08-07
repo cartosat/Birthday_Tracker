@@ -7,7 +7,8 @@ services:
       dockerfile: Dockerfile
 
     volumes:
-      - /var/run/docker.sock:/var/run/docker.host.sock
+      - /var/run/docker.sock:/var/run/docker-host.sock
+      - local-data:/home/vips/.local
       - ~/.ssh:/home/vips/.ssh:cached
       - ../:/workspace:cached
 
