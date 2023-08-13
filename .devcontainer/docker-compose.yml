@@ -8,10 +8,9 @@ services:
 
     volumes:
       - /var/run/docker.sock:/var/run/docker-host.sock
-      - local-data:/home/vips/.local
-      - ~/.ssh:/home/vips/.ssh:cached
+      - ~/.ssh:/home/vscode/.ssh:cached
       - ../:/workspace:cached
 
     entrypoint: /usr/local/share/docker-init.sh
     command: sleep infinity
-    user: vips
+    user: vscode
