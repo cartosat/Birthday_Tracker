@@ -1,5 +1,5 @@
 sudo chown -R vscode \
     /home/vscode \
     /workspace
-sudo chown 600 ~/.ssh/*
+sudo chmod 600 ~/.ssh/*
 source /home/vscode/.bashrc
