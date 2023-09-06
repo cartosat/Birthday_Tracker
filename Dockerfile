@@ -29,4 +29,5 @@ RUN pip install -r requirements.txt
 COPY . /workspace
 
 ENTRYPOINT [ "/usr/local/share/docker-init.sh" ]
-CMD [ "sleep", "infinity" ]
+
+CMD cd /workspace && python3 manage.py runserver 0.0.0.0:8000
