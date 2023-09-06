@@ -13,7 +13,8 @@ ENV DOCKER_BUILDKIT=1
 COPY .devcontainer/library-scripts/*.sh /tmp/library-scripts/
 
 RUN apt-get update \
-    && apt-get install -y dos2unix python3-dev default-libmysqlclient-dev build-essential graphviz\
+    && apt-get install -y dos2unix python3-dev default-libmysqlclient-dev build-essential \
+    pkg-config graphviz\
     && dos2unix /tmp/library-scripts/common-debian.sh \
     && /bin/bash /tmp/library-scripts/common-debian.sh "${INSTALL_ZSH}" "${USERNAME}" "${USER_UID}" "${USER_GID}" "${UPGRADE_PACKAGES}" "false" "true" \
     # Use Docker script from script library to set things up
@@ -28,4 +29,5 @@ RUN pip install -r requirements.txt
 COPY . /workspace
 
 ENTRYPOINT [ "/usr/local/share/docker-init.sh" ]
-CMD [ "sleep", "infinity" ]
+
+CMD cd /workspace && python3 manage.py runserver 0.0.0.0:8000
