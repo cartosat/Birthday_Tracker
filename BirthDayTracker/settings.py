@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'BirthDayManager.apps.BirthdaymanagerConfig',
     'phonenumber_field',
     'rest_framework',
+    'rest_framework_swagger',
     'Api'
 ]
 
