@@ -10,5 +10,5 @@ urlpatterns = [
     path('', SpectacularSwaggerView.as_view(
         template_name='swagger-ui.html',
         url_name='Api:api_schema'), name='api-docs'),
-    path('greet/', InitialApi.as_view(), name="home"),
+    path('initial/', InitialApi.as_view(), name="home"),
 ]
