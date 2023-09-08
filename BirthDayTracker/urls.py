@@ -18,19 +18,11 @@ from django.urls import path, include
 
 from django.conf.urls.static import static
 from django.conf import settings
-from rest_framework.schemas import get_schema_view
-from django.views.generic import TemplateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('BirthDayManager.urls')),
     path('auth/', include('UserAuth.urls')),
-    # Api related urls
-    path('api_schema', get_schema_view(title="Api Schema"), name="api_schema"),
-    path('docs', TemplateView.as_view(
-        template_name='swagger-ui.html',
-        extra_context={'schema_url':'api_schema'}
-    ), name='api-docs'),
     path('api/', include("Api.urls")),
 ]
 if settings.DEBUG:

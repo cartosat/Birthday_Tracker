@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'BirthDayManager.apps.BirthdaymanagerConfig',
     'phonenumber_field',
     'rest_framework',
-    'rest_framework_swagger',
+    'drf_spectacular',
     'Api'
 ]
 
@@ -56,6 +56,18 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
+REST_FRAMEWORK = {
+
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Birthday Tracker API',
+    'DESCRIPTION': 'Backend api documentation for birthday tracker platform.',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+}
+
 
 AUTH_USER_MODEL = 'UserAuth.CustomUser'
 DATE_INPUT_FORMATS = ['%d-%b-%Y']

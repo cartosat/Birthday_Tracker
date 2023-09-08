@@ -1,8 +1,6 @@
 from django.shortcuts import render
 from django.http import JsonResponse
 from rest_framework.views import APIView
-from rest_framework.generics import GenericAPIView
-from rest_framework.response import Response
 
 # Create your views here.
 class InitialApi(APIView):
@@ -13,6 +11,20 @@ class InitialApi(APIView):
         return JsonResponse(data)
     
     def post(self, request):
+        user_name = request.POST.get("user_name")
+        data = {
+            'message': f'Hello {user_name} !!!',
+        }
+        return JsonResponse(data)
+    
+    def put(self, request):
+        user_name = request.data.get("user_name")
+        data = {
+            'message': f'Hello {user_name} !!!',
+        }
+        return JsonResponse(data)
+    
+    def delete(self, request):
         user_name = request.data.get("user_name")
         data = {
             'message': f'Hello {user_name} !!!',
