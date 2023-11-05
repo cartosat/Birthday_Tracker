@@ -1,7 +1,7 @@
 from django.urls import path
-from . import views
 from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
-from Api.views import InitialApi
+from Api.views import InitialApi, Home
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 app_name = 'Api'
 urlpatterns = [
@@ -11,4 +11,7 @@ urlpatterns = [
         template_name='swagger-ui.html',
         url_name='Api:api_schema'), name='api-docs'),
     path('initial/', InitialApi.as_view(), name="home"),
+    path('auth/get_token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('auth/refresh_token/', TokenRefreshView.as_view(), name='token_refresh'),
+    path('home/', Home.as_view(), name='home'),
 ]
