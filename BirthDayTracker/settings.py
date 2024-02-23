@@ -28,6 +28,7 @@ SECRET_KEY = 'django-insecure-9o0&6g&rv)&9nmp#g!!9y#n-o08(x2objugyw=mhbja=8zm(gb
 DEBUG = True
 
 ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1', '34.228.22.184', 'vsw.digital', 'http://vsw.digital', 'https://vsw.digital']
+CSRF_TRUSTED_ORIGINS = ['https://*.vsw.digital', 'https://vsw.digital', 'https://*.127.0.0.1', 'https://127.0.0.1']
 
 
 # Application definition
